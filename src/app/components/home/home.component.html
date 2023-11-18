@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-6" *ngFor="let product of products;let i=index">
+        <div class="card flex-fill mb-4 shadow-sm"       
+        >
+        <div *ngIf="!product.showDescription">
+          <img [src]="product.thumbnail" class="card-img-top" alt="Product Thumbnail" style="object-fit: cover; height: 200px;">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ product.title }}</h5>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">      
+                <a href="javascript:void(0);" class="btn btn-sm btn-outline-secondary" (click)="showProductDescription(product)">Description</a>              
+                <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+              </div>
+              <div class="price-text text-center">
+                <span class="price-icon"><i class="fas fa-dollar-sign"></i></span> {{ product.price }}
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <small class="rating-text text-custom">Rating: {{ product.rating }}</small>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="product.showDescription" class="card-body">
+          <h5 class="card-title text-center">{{ product.title }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <div class="text-center">
+            <p class="price-text">
+              <span class="price-icon"><i class="fas fa-dollar-sign"></i></span> {{ product.price }}
+            </p>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href="#" class="btn btn-sm btn-outline-secondary" (click)="product.showDescription = false">Close</a>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+            </div>
+            <div class="d-flex align-items-center">
+              <small class="rating-text text-custom">Rating: {{ product.rating }}</small>
+              <div class="star-container">
+                <ng-container *ngFor="let star of getStars(product.rating); let i = index">
+                  <i class="star-icon fas" [ngClass]="{'fa-star': star, 'fa-star-half-alt': hasHalfStar(i, product.rating), 'dark-star': !star, 'gold-star': star}"></i>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 

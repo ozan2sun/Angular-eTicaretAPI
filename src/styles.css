@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+/* styles.scss */
+a {
+    cursor: pointer;
+  }
+  
+  .card-deck {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    flex: 1;
+    margin: 0.5rem;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+
+  .price-text {
+    color: black;
+    padding: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .price-icon {
+    margin-right: 1px;
+    color: rgb(36, 150, 28);
+  }
+  
+  .price-sign {
+    margin-right: 1px;
+    font-weight: bold;
+  }
+  
+  .text-custom {
+    color: rgb(208, 194, 38);
+    font-weight: bold;
+    margin-right: 2px;
+  }
+  
+  .gold-star {
+    color: gold
+  }
+  
+  /* Koyu renkte boş yıldız */
+  .dark-star {
+    color: darkgray;
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@media (max-width: 576px) {
+    .col-sm-6 {
+      width: 100%;
+    }
+  }
+  
